@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var gameCounter = 0
     @State private var showingScore = false
+    @State private var showingGameOver = false
     @State private var score = 0
     @State private var scoreTitle = ""
     @State var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
@@ -19,10 +21,26 @@ struct ContentView: View {
             scoreTitle = "Correct"
             score += 1
         } else {
-            scoreTitle = "Wrong"
+            scoreTitle = "Wrong: Thats the flag of \(countries[number])"
         }
 
         showingScore = true
+        gameCounter += 1
+        isGameOver()
+    }
+    
+    func isGameOver() -> Void {
+        switch gameCounter {
+        case 8:
+            showingGameOver = true
+        default:
+            showingGameOver = false
+        }
+    }
+    
+    func resetGame() -> Void {
+        gameCounter = 0
+        score = 0
     }
     
     func askQuestion() {
@@ -73,10 +91,16 @@ struct ContentView: View {
             }
             .padding()
         }
-        .ignoresSafeArea().alert(scoreTitle, isPresented: $showingScore) {
+        .ignoresSafeArea()
+        .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue", action: askQuestion)
         } message: {
             Text("Your score is \(score)")
+        }
+        .alert("Game Over!", isPresented: $showingGameOver) {
+            Button("Restart", action: resetGame)
+        } message: {
+            Text("Your final score was \(score), try again!")
         }
     }
 }
