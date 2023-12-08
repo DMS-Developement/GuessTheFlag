@@ -9,3 +9,5 @@ We have a game that randomly shuffles an array of countries, displays Images bas
 <img width="339" alt="Screenshot 2023-12-08 at 13 04 21" src="https://github.com/DMS-Developement/GuessTheFlag/assets/81834848/5d764ba6-4a85-4d84-b451-ff4f8255d493">
 
 <img width="339" alt="Screenshot 2023-12-08 at 13 04 27" src="https://github.com/DMS-Developement/GuessTheFlag/assets/81834848/28c1f227-50e6-4fd2-8653-22e549341b2a">
+
+<img width="339" alt="Screenshot 2023-12-08 at 13 38 13" src="https://github.com/DMS-Developement/GuessTheFlag/assets/81834848/464e218a-854c-41d5-a380-58ce842d95cd">
